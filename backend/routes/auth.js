@@ -111,12 +111,12 @@ router.get('/google/callback', (req, res, next) => {
         <html>
           <head>
             <title>Authentication Error</title>
-            <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Duplicate%20authentication%20attempt">
+            <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Duplicate%20authentication%20attempt">
           </head>
           <body>
             <p>Authentication failed (duplicate request). Redirecting...</p>
             <script>
-              window.location.href = "${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Duplicate%20authentication%20attempt";
+              window.location.href = "${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Duplicate%20authentication%20attempt";
             </script>
           </body>
         </html>
@@ -133,12 +133,12 @@ router.get('/google/callback', (req, res, next) => {
       <html>
         <head>
           <title>Authentication Error</title>
-          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=${errorMsg}">
+          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=${errorMsg}">
         </head>
         <body>
           <p>Authentication failed. Redirecting...</p>
           <script>
-            window.location.href = "${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=${errorMsg}";
+            window.location.href = "${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=${errorMsg}";
           </script>
         </body>
       </html>
@@ -153,12 +153,12 @@ router.get('/google/callback', (req, res, next) => {
       <html>
         <head>
           <title>Authentication Error</title>
-          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Authentication%20failed">
+          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Authentication%20failed">
         </head>
         <body>
           <p>Authentication failed. Redirecting...</p>
           <script>
-            window.location.href = "${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Authentication%20failed";
+            window.location.href = "${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Authentication%20failed";
           </script>
         </body>
       </html>
@@ -183,12 +183,12 @@ function processAuthenticatedUser(req, res, user, requestId) {
       <html>
         <head>
           <title>Login Error</title>
-          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Login%20failed">
+          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Login%20failed">
         </head>
         <body>
           <p>Login failed. Redirecting...</p>
           <script>
-            window.location.href = "${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Login%20failed";
+            window.location.href = "${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Login%20failed";
           </script>
         </body>
       </html>
@@ -215,7 +215,7 @@ function processAuthenticatedUser(req, res, user, requestId) {
         { expiresIn: '1h' }
       );
       
-      const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
+      const clientUrl = process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com';
       
       // Pass the token directly in the URL instead of using localStorage
       const dashboardUrl = `${clientUrl}/auth/callback?token=${encodeURIComponent(token)}`;
@@ -274,12 +274,12 @@ function processAuthenticatedUser(req, res, user, requestId) {
       <html>
         <head>
           <title>Token Error</title>
-          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Token%20generation%20failed">
+          <meta http-equiv="refresh" content="0;url=${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Token%20generation%20failed">
         </head>
         <body>
           <p>Token generation failed. Redirecting...</p>
           <script>
-            window.location.href = "${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Token%20generation%20failed";
+            window.location.href = "${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Token%20generation%20failed";
           </script>
         </body>
       </html>
@@ -326,14 +326,14 @@ router.get('/backup-callback', (req, res) => {
     const { token } = req.query;
     
     if (token) {
-      return res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/auth/callback?token=${token}`);
+      return res.redirect(`${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/auth/callback?token=${token}`);
     }
     
     // Redirect to login with error
-    return res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Authentication failed`);
+    return res.redirect(`${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Authentication failed`);
   } catch (error) {
     console.error('Error in backup callback:', error);
-    return res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Server error`);
+    return res.redirect(`${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Server error`);
   }
 });
 
@@ -355,12 +355,12 @@ router.get('/logout', (req, res) => {
         }
         
         // Redirect to frontend
-        res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/login`);
+        res.redirect(`${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login`);
       });
     });
   } catch (error) {
     console.error('Error in logout route:', error);
-    res.redirect(`${process.env.CLIENT_URL || 'http://localhost:3000'}/login?error=Logout failed`);
+    res.redirect(`${process.env.CLIENT_URL || 'https://cv.dearsirhometuition.com'}/login?error=Logout failed`);
   }
 });
 
