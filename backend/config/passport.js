@@ -44,7 +44,7 @@ module.exports = passport => {
   // Use absolute URL instead of relative path for callbackURL
   const callbackURL = process.env.NODE_ENV === 'production' 
     ? `${process.env.API_URL}/api/auth/google/callback` 
-    : 'https://apicv.dearsirhometuition.com/api/auth/google/callback';
+    : 'https://cvapi.dearsirhometuition.com/api/auth/google/callback';
   
   console.log(`Using callback URL: ${callbackURL}`);
 
